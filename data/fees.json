@@ -1,0 +1,116 @@
+{
+  "$schema": "./schema.json",
+  "version": "1.0.0",
+  "updated": "2026-08-03",
+  "currency": "USD",
+  "disclaimer": "Rates are the common/default seller case for each platform. Category, country, subscription tier and legacy plans change them. Always check the platform's own fee page (linked as source) before pricing on these numbers.",
+  "platforms": [
+    {
+      "id": "vinted",
+      "name": "Vinted",
+      "kind": "resale",
+      "percent": 0.0,
+      "fixed": 0.0,
+      "summary": "Vinted charges sellers $0 — buyers pay the protection fee",
+      "notes": "No seller fee. Vinted charges the buyer a ~5% + $0.70/€0.70 buyer protection fee on top of your price instead — it doesn't come out of your payout, but it affects what buyers are willing to pay.",
+      "source": "https://www.vinted.com/help/79-what-are-the-fees",
+      "calculator": "https://vinted-fee-calculator-tan.vercel.app"
+    },
+    {
+      "id": "depop",
+      "name": "Depop",
+      "kind": "resale",
+      "percent": 3.3,
+      "fixed": 0.45,
+      "summary": "3.3% payment processing + $0.45 fixed per sale",
+      "notes": "Depop dropped its 10% seller fee in 2024 (US/UK). What's left is payment processing only: 3.3% + $0.45 fixed.",
+      "source": "https://depophelp.zendesk.com/hc/en-gb/articles/360001019508-Depop-fees",
+      "calculator": "https://depop-fee-calculator-gules.vercel.app"
+    },
+    {
+      "id": "whatnot",
+      "name": "Whatnot",
+      "kind": "resale",
+      "percent": 10.9,
+      "fixed": 0.3,
+      "summary": "8.0% seller fee + 2.9% payment processing + $0.30 fixed",
+      "notes": "8.0% seller commission + 2.9% payment processing + $0.30 fixed per order = 10.9% + $0.30 combined.",
+      "source": "https://help.whatnot.com/hc/en-us/articles/4405219819419-Seller-Fees",
+      "calculator": "https://whatnot-fee-calculator-pink.vercel.app"
+    },
+    {
+      "id": "patreon",
+      "name": "Patreon",
+      "kind": "creator",
+      "percent": 12.9,
+      "fixed": 0.3,
+      "summary": "10% platform fee (new creators, Aug 2025+) + 2.9% + $0.30",
+      "notes": "10% Patreon platform fee (new creators onboarded Aug 2025 or later) + 2.9% + $0.30 payment processing = 12.9% + $0.30. Legacy creators on older plans may pay less platform fee (as low as 5–8%) — check your dashboard.",
+      "source": "https://support.patreon.com/hc/en-us/articles/204606315-Patreon-s-fees",
+      "calculator": "https://patreon-fee-calculator-blush.vercel.app"
+    },
+    {
+      "id": "gumroad",
+      "name": "Gumroad",
+      "kind": "creator",
+      "percent": 12.9,
+      "fixed": 0.3,
+      "summary": "10.0% seller fee + 2.9% payment processing + $0.30 fixed",
+      "notes": "10.0% flat Gumroad fee + 2.9% + $0.30 payment processing = 12.9% + $0.30 combined on every sale.",
+      "source": "https://help.gumroad.com/article/66-gumroads-fees",
+      "calculator": "https://gumroad-fee-calculator.vercel.app"
+    },
+    {
+      "id": "doordash",
+      "name": "DoorDash",
+      "kind": "gig",
+      "percent": 0.0,
+      "fixed": 0.0,
+      "summary": "No cut taken from what DoorDash pays you — your costs are gas/vehicle",
+      "notes": "DoorDash doesn't take a percentage out of your dasher pay the way a marketplace takes a seller fee — what's shown as your payout (base pay + tips + promotions) is yours. The real deductions are your own costs: mileage, gas, phone, insurance. Enter those as costs below to see true take-home.",
+      "source": "https://help.doordash.com/merchants/s/article/what-are-the-fees",
+      "calculator": "https://doordash-earnings-calculator.vercel.app"
+    },
+    {
+      "id": "etsy",
+      "name": "Etsy",
+      "kind": "resale",
+      "percent": 9.5,
+      "fixed": 0.45,
+      "summary": "6.5% transaction + 3% + $0.25 processing + $0.20 listing fee",
+      "notes": "$0.20 listing fee + 6.5% transaction fee + 3% + $0.25 payment processing (US, Etsy Payments) = 9.5% + $0.45 combined. The 6.5% applies to the shipping you charge as well as the item. Offsite Ads add another 15% (12% once you pass $10k in trailing annual sales, at which point they become mandatory) — that is not included here.",
+      "source": "https://www.etsy.com/legal/fees/",
+      "calculator": "https://etsy-fee-calculator-chi.vercel.app"
+    },
+    {
+      "id": "ebay",
+      "name": "eBay",
+      "kind": "resale",
+      "percent": 13.6,
+      "fixed": 0.4,
+      "summary": "13.6% final value fee + $0.40 per order",
+      "notes": "13.6% final value fee on the total (item + shipping + tax) for most categories, plus a $0.40 per-order fee. Rates vary by category, drop to 2.35% on the portion above $7,500, and Store subscribers pay less — check your own category before pricing on this.",
+      "source": "https://www.ebay.com/help/selling/fees-credits-invoices/selling-fees"
+    },
+    {
+      "id": "poshmark",
+      "name": "Poshmark",
+      "kind": "resale",
+      "percent": 20.0,
+      "fixed": 0.0,
+      "summary": "20% on sales of $15+ — a flat $2.95 below that",
+      "notes": "Poshmark takes 20% on sales of $15 and over, with payment processing included. Below $15 it is a flat $2.95 instead, which this calculator does not model — for a sub-$15 sale, use 'Other / custom' with 0% and $2.95 fixed.",
+      "source": "https://support.poshmark.com/s/article/What-are-the-selling-fees"
+    },
+    {
+      "id": "mercari",
+      "name": "Mercari",
+      "kind": "resale",
+      "percent": 10.0,
+      "fixed": 0.0,
+      "summary": "Flat 10% of the item price — no separate processing fee",
+      "notes": "Mercari reintroduced a seller fee in January 2025: a flat 10% of the item price plus any shipping the buyer pays, with no separate payment-processing charge on top.",
+      "source": "https://www.mercari.com/help_center/article/803/"
+    }
+  ]
+}
