@@ -47,6 +47,8 @@ feeOn({ percent: 8.5, fixed: 0.35 }, 120); // 10.55
 
 ## The data
 
+| Platform | id | Headline rate | What that is | Calculator |
+| --- | --- | --- | --- | --- |
 | [Vinted](https://www.vinted.com/help/79-what-are-the-fees) | `vinted` | 0.0% | Vinted charges sellers $0 — buyers pay the protection fee | [calculator](https://vinted-fee-calculator-tan.vercel.app) |
 | [Depop](https://depophelp.zendesk.com/hc/en-gb/articles/360001019508-Depop-fees) | `depop` | 3.3% + $0.45 | 3.3% payment processing + $0.45 fixed per sale | [calculator](https://depop-fee-calculator-gules.vercel.app) |
 | [Whatnot](https://help.whatnot.com/hc/en-us/articles/4405219819419-Seller-Fees) | `whatnot` | 10.9% + $0.30 | 8.0% seller fee + 2.9% payment processing + $0.30 fixed | [calculator](https://whatnot-fee-calculator-pink.vercel.app) |
