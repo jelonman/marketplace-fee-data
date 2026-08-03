@@ -9,14 +9,16 @@ No dependencies. No build step. The JSON is usable on its own — `data/fees.jso
 
 ## Install
 
+Not on npm yet. Install from the repo:
+
 ```bash
-npm install marketplace-fee-data
+npm install github:jelonman/marketplace-fee-data
 ```
 
-Or just take the file:
+Or just take the file — the JSON is the whole point and it stands alone:
 
-```
-https://raw.githubusercontent.com/jelonman/marketplace-fee-data/main/data/fees.json
+```bash
+curl -O https://raw.githubusercontent.com/jelonman/marketplace-fee-data/main/data/fees.json
 ```
 
 ## Use
