@@ -1,13 +1,15 @@
 {
   "name": "marketplace-fee-data",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Seller fee models for Etsy, eBay, Depop, Vinted, Poshmark, Mercari, Whatnot, Gumroad, Patreon and DoorDash as plain JSON, with a zero-dependency calculator.",
   "main": "index.js",
   "types": "index.d.ts",
   "files": ["index.js", "index.d.ts", "data/"],
   "exports": {
     ".": { "types": "./index.d.ts", "default": "./index.js" },
-    "./data/fees.json": "./data/fees.json"
+    "./data/fees.json": "./data/fees.json",
+    "./data/schema.json": "./data/schema.json",
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test": "node test/fees.test.js"

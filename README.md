@@ -25,6 +25,9 @@ Or just take the file — the JSON is the whole point and it stands alone:
 curl -O https://raw.githubusercontent.com/jelonman/marketplace-fee-data/main/data/fees.json
 ```
 
+It is self-describing: `data/schema.json` is a JSON Schema (draft 2020-12) covering every field, so
+editors and CI can validate the dataset without this package.
+
 ## Use
 
 ```js
@@ -92,10 +95,13 @@ platform's fee page and it gets fixed — that is the entire point of the repo.
 npm test
 ```
 
-Nine tests, no framework. The interesting one is the round-trip: for every platform in the dataset
-it computes `priceForNet`, then runs that price back through `breakdown` and asserts the seller
-really does clear the target. That catches an inverted fee formula, which a "fee > 0" assertion
-never will.
+Twelve tests, no framework, no dependencies. The interesting one is the round-trip: for every
+platform in the dataset it computes `priceForNet`, then runs that price back through `breakdown`
+and asserts the seller really does clear the target. That catches an inverted fee formula, which a
+"fee > 0" assertion never will.
+
+The suite also validates `data/fees.json` against `data/schema.json`, and then mutates the dataset
+to prove each rule actually rejects bad input — a validator that never fails is worse than none.
 
 ## Licence
 

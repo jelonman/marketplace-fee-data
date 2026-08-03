@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/jelonman/marketplace-fee-data/main/data/schema.json",
+  "title": "marketplace-fee-data",
+  "description": "Seller fee models for online marketplaces. Percentages apply to the gross (item plus any shipping charged to the buyer), which is how these platforms actually bill.",
+  "type": "object",
+  "required": ["version", "updated", "currency", "disclaimer", "platforms"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Pointer to this schema."
+    },
+    "version": {
+      "type": "string",
+      "description": "Dataset version. Tracks the fee figures, not the npm package version.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "updated": {
+      "type": "string",
+      "description": "Date the fee figures were last checked against the linked sources.",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "currency": {
+      "type": "string",
+      "description": "ISO 4217 code the fixed amounts are denominated in.",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "disclaimer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platforms": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/platform" }
+    }
+  },
+  "$defs": {
+    "platform": {
+      "type": "object",
+      "required": ["id", "name", "kind", "percent", "fixed", "summary", "notes", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Lowercase lookup key, unique across the dataset. Accepted by getPlatform().",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name as the platform writes it.",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "description": "Rough category of marketplace.",
+          "minLength": 1
+        },
+        "percent": {
+          "type": "number",
+          "description": "Percent of gross the platform keeps. 0 means the seller pays no percentage fee.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "fixed": {
+          "type": "number",
+          "description": "Flat per-sale amount in `currency`, charged on top of `percent`.",
+          "minimum": 0
+        },
+        "summary": {
+          "type": "string",
+          "description": "One line explaining what the headline rate is made of.",
+          "minLength": 1
+        },
+        "notes": {
+          "type": "string",
+          "description": "The caveats that break naive math: tiers, bands, legacy plans, country and category variance.",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "description": "The platform's own fee page. Check this before pricing on these numbers.",
+          "format": "uri"
+        },
+        "calculator": {
+          "type": "string",
+          "description": "Optional hosted calculator for this platform.",
+          "format": "uri"
+        }
+      }
+    }
+  }
+}
