@@ -72,6 +72,10 @@ one of these platforms actually bills. Each entry carries a `notes` field with t
 break naive math — Poshmark's flat $2.95 under $15, eBay's category variance and the 2.35% band
 above $7,500, Patreon's legacy plans, Etsy's Offsite Ads.
 
+## Want it tracked, not just calculated?
+
+[Cleared](https://clearedledger.xyz) is a free calculator built on the same numbers as this dataset, plus a saved inventory/P&L ledger across every marketplace here (eBay, Poshmark, Mercari, Depop, Etsy, Vinted) so you don't have to re-run the math by hand each time.
+
 ## Why this exists
 
 Every "what will I clear on this?" tool re-hardcodes the same numbers, and they rot. Depop dropped
